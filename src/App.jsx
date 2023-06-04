@@ -6,6 +6,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      edit: false,
       personalInformation: { name: "", email: "", phone: "" },
       educationExperience: {
         schoolName: "",
@@ -24,10 +25,17 @@ export default class App extends Component {
     return (
       <>
         <h1>CV Project</h1>
-        {this.state.practicalExperience.duration !== "" ? (
-          <Display onQuery={this.state} />
+        {this.state.practicalExperience.duration !== "" &&
+        this.state.edit !== true ? (
+          <Display
+            readState={this.state}
+            setState={this.setState.bind(this)}
+          />
         ) : (
-          <Form onQuery={this.setState.bind(this)} />
+          <Form
+            readState={this.state}
+            setState={this.setState.bind(this)}
+          />
         )}
         {console.log(this.state)}
       </>

@@ -5,6 +5,7 @@ export class Form extends Component {
     super(props);
 
     this.state = {
+      edit: false,
       personalInformation: { name: "", email: "", phone: "" },
       educationExperience: {
         schoolName: "",
@@ -21,9 +22,14 @@ export class Form extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.setState(this.props.readState);
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    this.props.onQuery(this.state);
+    this.props.setState(this.state);
+    this.props.setState({ edit: false });
     console.log(this.state);
   }
 

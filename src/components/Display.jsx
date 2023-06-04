@@ -3,19 +3,27 @@ import { Component } from "react";
 export class Display extends Component {
   constructor(props) {
     super(props);
+
+    this.handleEdit = this.handleEdit.bind(this);
+  }
+
+  handleEdit(e) {
+    e.preventDefault();
+    this.props.setState({ edit: true });
+    console.log(this.props.readState);
   }
 
   render() {
     return (
       <>
-        <form>
+        <form onSubmit={this.handleEdit}>
           <h2>Personal Information</h2>
 
           <label htmlFor="name">Name</label>
           <input
             type="text"
             id="name"
-            value={this.props.onQuery.personalInformation.name}
+            value={this.props.readState.personalInformation.name}
             readOnly
           />
 
@@ -23,7 +31,7 @@ export class Display extends Component {
           <input
             type="email"
             id="mail"
-            value={this.props.onQuery.personalInformation.email}
+            value={this.props.readState.personalInformation.email}
             readOnly
           />
 
@@ -32,7 +40,7 @@ export class Display extends Component {
             type="tel"
             maxLength={10}
             id="phone"
-            value={this.props.onQuery.personalInformation.phone}
+            value={this.props.readState.personalInformation.phone}
             readOnly
           />
 
@@ -42,7 +50,7 @@ export class Display extends Component {
           <input
             type="text"
             id="school-name"
-            value={this.props.onQuery.educationExperience.schoolName}
+            value={this.props.readState.educationExperience.schoolName}
             readOnly
           />
 
@@ -50,7 +58,7 @@ export class Display extends Component {
           <input
             type="text"
             id="title-study"
-            value={this.props.onQuery.educationExperience.titleStudy}
+            value={this.props.readState.educationExperience.titleStudy}
             readOnly
           />
 
@@ -58,7 +66,7 @@ export class Display extends Component {
           <input
             type="date"
             id="date-study"
-            value={this.props.onQuery.educationExperience.dateStudy}
+            value={this.props.readState.educationExperience.dateStudy}
             readOnly
           />
 
@@ -68,7 +76,7 @@ export class Display extends Component {
           <input
             type="text"
             id="company-name"
-            value={this.props.onQuery.practicalExperience.companyName}
+            value={this.props.readState.practicalExperience.companyName}
             readOnly
           />
 
@@ -76,7 +84,7 @@ export class Display extends Component {
           <input
             type="text"
             id="position-title"
-            value={this.props.onQuery.practicalExperience.positionTitle}
+            value={this.props.readState.practicalExperience.positionTitle}
             readOnly
           />
 
@@ -85,7 +93,7 @@ export class Display extends Component {
             type="number"
             id="duration"
             min={0}
-            value={this.props.onQuery.practicalExperience.duration}
+            value={this.props.readState.practicalExperience.duration}
             readOnly
           />
 
