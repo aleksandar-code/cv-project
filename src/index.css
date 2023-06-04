@@ -30,7 +30,6 @@ form {
   > .submit-btn {
     margin-top: 10px;
     width: fit-content;
-    align-self: left;
     border: none;
     border-radius: 12px;
     background-color: rgb(153, 255, 0);
@@ -43,4 +42,20 @@ form {
     cursor: pointer;
     background-color: rgb(210, 253, 140);
   }
+}
+
+.edit-btn {
+  margin-top: 10px;
+  width: fit-content;
+  border: none;
+  border-radius: 12px;
+  background-color: rgb(41, 144, 228);
+  padding: 10px 20px;
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+.edit-btn:hover {
+  cursor: pointer;
+  background-color: rgb(139, 188, 228);
 }
