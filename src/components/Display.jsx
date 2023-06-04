@@ -10,7 +10,6 @@ export class Display extends Component {
   handleEdit(e) {
     e.preventDefault();
     this.props.setState({ edit: true });
-    console.log(this.props.readState);
   }
 
   render() {

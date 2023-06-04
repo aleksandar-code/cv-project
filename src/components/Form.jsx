@@ -30,7 +30,6 @@ export class Form extends Component {
     e.preventDefault();
     this.props.setState(this.state);
     this.props.setState({ edit: false });
-    console.log(this.state);
   }
 
   render() {
