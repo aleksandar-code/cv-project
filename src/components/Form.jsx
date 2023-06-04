@@ -23,7 +23,7 @@ export class Form extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
+    this.props.onQuery(this.state);
     console.log(this.state);
   }
 

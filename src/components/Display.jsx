@@ -15,6 +15,7 @@ export class Display extends Component {
           <input
             type="text"
             id="name"
+            value={this.props.onQuery.personalInformation.name}
             readOnly
           />
 
@@ -22,6 +23,7 @@ export class Display extends Component {
           <input
             type="email"
             id="mail"
+            value={this.props.onQuery.personalInformation.email}
             readOnly
           />
 
@@ -30,6 +32,7 @@ export class Display extends Component {
             type="tel"
             maxLength={10}
             id="phone"
+            value={this.props.onQuery.personalInformation.phone}
             readOnly
           />
 
@@ -39,6 +42,7 @@ export class Display extends Component {
           <input
             type="text"
             id="school-name"
+            value={this.props.onQuery.educationExperience.schoolName}
             readOnly
           />
 
@@ -46,12 +50,15 @@ export class Display extends Component {
           <input
             type="text"
             id="title-study"
+            value={this.props.onQuery.educationExperience.titleStudy}
+            readOnly
           />
 
           <label htmlFor="date-study">Date of study</label>
           <input
             type="date"
             id="date-study"
+            value={this.props.onQuery.educationExperience.dateStudy}
             readOnly
           />
 
@@ -61,6 +68,7 @@ export class Display extends Component {
           <input
             type="text"
             id="company-name"
+            value={this.props.onQuery.practicalExperience.companyName}
             readOnly
           />
 
@@ -68,6 +76,7 @@ export class Display extends Component {
           <input
             type="text"
             id="position-title"
+            value={this.props.onQuery.practicalExperience.positionTitle}
             readOnly
           />
 
@@ -76,6 +85,7 @@ export class Display extends Component {
             type="number"
             id="duration"
             min={0}
+            value={this.props.onQuery.practicalExperience.duration}
             readOnly
           />
 
