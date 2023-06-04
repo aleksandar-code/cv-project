@@ -4,26 +4,9 @@ export class Form extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      edit: false,
-      personalInformation: { name: "", email: "", phone: "" },
-      educationExperience: {
-        schoolName: "",
-        titleStudy: "",
-        dateStudy: "",
-      },
-      practicalExperience: {
-        companyName: "",
-        positionTitle: "",
-        duration: "",
-      },
-    };
+    this.state = this.props.readState;
 
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState(this.props.readState);
   }
 
   handleSubmit(e) {
