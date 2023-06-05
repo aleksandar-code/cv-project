@@ -2,7 +2,24 @@ export function Display(props) {
   function handleEdit(e) {
     e.preventDefault();
 
-    props.setState({ edit: true });
+    props.setState({
+      edit: false,
+      personalInformation: {
+        name: props.readState.personalInformation.name,
+        email: props.readState.personalInformation.email,
+        phone: props.readState.personalInformation.phone,
+      },
+      educationExperience: {
+        schoolName: props.readState.educationExperience.schoolName,
+        titleStudy: props.readState.educationExperience.titleStudy,
+        dateStudy: props.readState.educationExperience.dateStudy,
+      },
+      practicalExperience: {
+        companyName: props.readState.practicalExperience.companyName,
+        positionTitle: props.readState.practicalExperience.positionTitle,
+        duration: props.readState.practicalExperience.duration,
+      },
+    });
   }
 
   return (

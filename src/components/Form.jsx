@@ -1,9 +1,24 @@
 export function Form({ readState, setState }) {
-  console.log(readState);
   function handleSubmit(e) {
     e.preventDefault();
-    // setState(readState);
-    setState({ edit: false });
+    setState({
+      edit: true,
+      personalInformation: {
+        name: readState.personalInformation.name,
+        email: readState.personalInformation.email,
+        phone: readState.personalInformation.phone,
+      },
+      educationExperience: {
+        schoolName: readState.educationExperience.schoolName,
+        titleStudy: readState.educationExperience.titleStudy,
+        dateStudy: readState.educationExperience.dateStudy,
+      },
+      practicalExperience: {
+        companyName: readState.practicalExperience.companyName,
+        positionTitle: readState.practicalExperience.positionTitle,
+        duration: readState.practicalExperience.duration,
+      },
+    });
   }
 
   return (
@@ -25,14 +40,14 @@ export function Form({ readState, setState }) {
                 phone: readState.personalInformation.phone,
               },
               educationExperience: {
-                schoolName: "",
-                titleStudy: "",
-                dateStudy: "",
+                schoolName: readState.educationExperience.schoolName,
+                titleStudy: readState.educationExperience.titleStudy,
+                dateStudy: readState.educationExperience.dateStudy,
               },
               practicalExperience: {
-                companyName: "",
-                positionTitle: "",
-                duration: "",
+                companyName: readState.practicalExperience.companyName,
+                positionTitle: readState.practicalExperience.positionTitle,
+                duration: readState.practicalExperience.duration,
               },
             })
           }
@@ -52,14 +67,14 @@ export function Form({ readState, setState }) {
                 phone: readState.personalInformation.phone,
               },
               educationExperience: {
-                schoolName: "",
-                titleStudy: "",
-                dateStudy: "",
+                schoolName: readState.educationExperience.schoolName,
+                titleStudy: readState.educationExperience.titleStudy,
+                dateStudy: readState.educationExperience.dateStudy,
               },
               practicalExperience: {
-                companyName: "",
-                positionTitle: "",
-                duration: "",
+                companyName: readState.practicalExperience.companyName,
+                positionTitle: readState.practicalExperience.positionTitle,
+                duration: readState.practicalExperience.duration,
               },
             })
           }
@@ -80,14 +95,14 @@ export function Form({ readState, setState }) {
                 phone: e.target.value,
               },
               educationExperience: {
-                schoolName: "",
-                titleStudy: "",
-                dateStudy: "",
+                schoolName: readState.educationExperience.schoolName,
+                titleStudy: readState.educationExperience.titleStudy,
+                dateStudy: readState.educationExperience.dateStudy,
               },
               practicalExperience: {
-                companyName: "",
-                positionTitle: "",
-                duration: "",
+                companyName: readState.practicalExperience.companyName,
+                positionTitle: readState.practicalExperience.positionTitle,
+                duration: readState.practicalExperience.duration,
               },
             })
           }
@@ -102,10 +117,21 @@ export function Form({ readState, setState }) {
           value={readState.educationExperience.schoolName}
           onChange={(e) =>
             setState({
+              edit: false,
+              personalInformation: {
+                name: readState.personalInformation.name,
+                email: readState.personalInformation.email,
+                phone: readState.personalInformation.phone,
+              },
               educationExperience: {
                 schoolName: e.target.value,
                 titleStudy: readState.educationExperience.titleStudy,
                 dateStudy: readState.educationExperience.dateStudy,
+              },
+              practicalExperience: {
+                companyName: readState.practicalExperience.companyName,
+                positionTitle: readState.practicalExperience.positionTitle,
+                duration: readState.practicalExperience.duration,
               },
             })
           }
@@ -118,10 +144,21 @@ export function Form({ readState, setState }) {
           value={readState.educationExperience.titleStudy}
           onChange={(e) =>
             setState({
+              edit: false,
+              personalInformation: {
+                name: readState.personalInformation.name,
+                email: readState.personalInformation.email,
+                phone: readState.personalInformation.phone,
+              },
               educationExperience: {
                 schoolName: readState.educationExperience.schoolName,
                 titleStudy: e.target.value,
                 dateStudy: readState.educationExperience.dateStudy,
+              },
+              practicalExperience: {
+                companyName: readState.practicalExperience.companyName,
+                positionTitle: readState.practicalExperience.positionTitle,
+                duration: readState.practicalExperience.duration,
               },
             })
           }
@@ -134,10 +171,21 @@ export function Form({ readState, setState }) {
           value={readState.educationExperience.dateStudy}
           onChange={(e) =>
             setState({
+              edit: false,
+              personalInformation: {
+                name: readState.personalInformation.name,
+                email: readState.personalInformation.email,
+                phone: readState.personalInformation.phone,
+              },
               educationExperience: {
                 schoolName: readState.educationExperience.schoolName,
                 titleStudy: readState.educationExperience.titleStudy,
                 dateStudy: e.target.value,
+              },
+              practicalExperience: {
+                companyName: readState.practicalExperience.companyName,
+                positionTitle: readState.practicalExperience.positionTitle,
+                duration: readState.practicalExperience.duration,
               },
             })
           }
@@ -152,6 +200,17 @@ export function Form({ readState, setState }) {
           value={readState.practicalExperience.companyName}
           onChange={(e) =>
             setState({
+              edit: false,
+              personalInformation: {
+                name: readState.personalInformation.name,
+                email: readState.personalInformation.email,
+                phone: readState.personalInformation.phone,
+              },
+              educationExperience: {
+                schoolName: readState.educationExperience.schoolName,
+                titleStudy: readState.educationExperience.titleStudy,
+                dateStudy: readState.educationExperience.dateStudy,
+              },
               practicalExperience: {
                 companyName: e.target.value,
                 positionTitle: readState.practicalExperience.positionTitle,
@@ -168,6 +227,17 @@ export function Form({ readState, setState }) {
           value={readState.practicalExperience.positionTitle}
           onChange={(e) =>
             setState({
+              edit: false,
+              personalInformation: {
+                name: readState.personalInformation.name,
+                email: readState.personalInformation.email,
+                phone: readState.personalInformation.phone,
+              },
+              educationExperience: {
+                schoolName: readState.educationExperience.schoolName,
+                titleStudy: readState.educationExperience.titleStudy,
+                dateStudy: readState.educationExperience.dateStudy,
+              },
               practicalExperience: {
                 companyName: readState.practicalExperience.companyName,
                 positionTitle: e.target.value,
@@ -185,6 +255,17 @@ export function Form({ readState, setState }) {
           value={readState.practicalExperience.duration}
           onChange={(e) =>
             setState({
+              edit: false,
+              personalInformation: {
+                name: readState.personalInformation.name,
+                email: readState.personalInformation.email,
+                phone: readState.personalInformation.phone,
+              },
+              educationExperience: {
+                schoolName: readState.educationExperience.schoolName,
+                titleStudy: readState.educationExperience.titleStudy,
+                dateStudy: readState.educationExperience.dateStudy,
+              },
               practicalExperience: {
                 companyName: readState.practicalExperience.companyName,
                 positionTitle: readState.practicalExperience.positionTitle,

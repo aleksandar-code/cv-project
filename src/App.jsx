@@ -19,7 +19,6 @@ export default function App() {
   });
 
   function printCV() {
-    console.log("print");
     document
       .querySelectorAll("button")
       .forEach((button) => (button.style.display = "none"));
@@ -37,6 +36,7 @@ export default function App() {
     <>
       <div className="container">
         <h1>CV Project</h1>
+        {console.log(state.edit)}
         {state.edit === true ? (
           <Display
             readState={state}
