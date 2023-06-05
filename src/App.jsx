@@ -36,9 +36,8 @@ export default function App() {
   return (
     <>
       <div className="container">
-        {" "}
         <h1>CV Project</h1>
-        {state.practicalExperience.duration !== "" && state.edit !== true ? (
+        {state.edit === true ? (
           <Display
             readState={state}
             setState={setState}

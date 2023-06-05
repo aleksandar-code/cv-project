@@ -1,12 +1,9 @@
-import { useState } from "react";
-
-export function Form(props) {
-  const [state, setState] = useState(this.props.readState);
-
+export function Form({ readState, setState }) {
+  console.log(readState);
   function handleSubmit(e) {
     e.preventDefault();
-    props.setState(state);
-    props.setState({ edit: false });
+    // setState(readState);
+    setState({ edit: false });
   }
 
   return (
@@ -18,13 +15,24 @@ export function Form(props) {
         <input
           type="text"
           id="name"
-          value={state.personalInformation.name}
+          value={readState.personalInformation.name}
           onChange={(e) =>
             setState({
+              edit: false,
               personalInformation: {
                 name: e.target.value,
-                email: state.personalInformation.email,
-                phone: state.personalInformation.phone,
+                email: readState.personalInformation.email,
+                phone: readState.personalInformation.phone,
+              },
+              educationExperience: {
+                schoolName: "",
+                titleStudy: "",
+                dateStudy: "",
+              },
+              practicalExperience: {
+                companyName: "",
+                positionTitle: "",
+                duration: "",
               },
             })
           }
@@ -34,13 +42,24 @@ export function Form(props) {
         <input
           type="email"
           id="mail"
-          value={state.personalInformation.email}
+          value={readState.personalInformation.email}
           onChange={(e) =>
             setState({
+              edit: false,
               personalInformation: {
-                name: state.personalInformation.name,
+                name: readState.personalInformation.name,
                 email: e.target.value,
-                phone: state.personalInformation.phone,
+                phone: readState.personalInformation.phone,
+              },
+              educationExperience: {
+                schoolName: "",
+                titleStudy: "",
+                dateStudy: "",
+              },
+              practicalExperience: {
+                companyName: "",
+                positionTitle: "",
+                duration: "",
               },
             })
           }
@@ -51,13 +70,24 @@ export function Form(props) {
           type="tel"
           maxLength={10}
           id="phone"
-          value={state.personalInformation.phone}
+          value={readState.personalInformation.phone}
           onChange={(e) =>
             setState({
+              edit: false,
               personalInformation: {
-                name: state.personalInformation.name,
-                email: state.personalInformation.email,
+                name: readState.personalInformation.name,
+                email: readState.personalInformation.email,
                 phone: e.target.value,
+              },
+              educationExperience: {
+                schoolName: "",
+                titleStudy: "",
+                dateStudy: "",
+              },
+              practicalExperience: {
+                companyName: "",
+                positionTitle: "",
+                duration: "",
               },
             })
           }
@@ -69,13 +99,13 @@ export function Form(props) {
         <input
           type="text"
           id="school-name"
-          value={state.educationExperience.schoolName}
+          value={readState.educationExperience.schoolName}
           onChange={(e) =>
             setState({
               educationExperience: {
                 schoolName: e.target.value,
-                titleStudy: state.educationExperience.titleStudy,
-                dateStudy: state.educationExperience.dateStudy,
+                titleStudy: readState.educationExperience.titleStudy,
+                dateStudy: readState.educationExperience.dateStudy,
               },
             })
           }
@@ -85,13 +115,13 @@ export function Form(props) {
         <input
           type="text"
           id="title-study"
-          value={state.educationExperience.titleStudy}
+          value={readState.educationExperience.titleStudy}
           onChange={(e) =>
             setState({
               educationExperience: {
-                schoolName: state.educationExperience.schoolName,
+                schoolName: readState.educationExperience.schoolName,
                 titleStudy: e.target.value,
-                dateStudy: state.educationExperience.dateStudy,
+                dateStudy: readState.educationExperience.dateStudy,
               },
             })
           }
@@ -101,12 +131,12 @@ export function Form(props) {
         <input
           type="date"
           id="date-study"
-          value={state.educationExperience.dateStudy}
+          value={readState.educationExperience.dateStudy}
           onChange={(e) =>
             setState({
               educationExperience: {
-                schoolName: state.educationExperience.schoolName,
-                titleStudy: state.educationExperience.titleStudy,
+                schoolName: readState.educationExperience.schoolName,
+                titleStudy: readState.educationExperience.titleStudy,
                 dateStudy: e.target.value,
               },
             })
@@ -119,13 +149,13 @@ export function Form(props) {
         <input
           type="text"
           id="company-name"
-          value={state.practicalExperience.companyName}
+          value={readState.practicalExperience.companyName}
           onChange={(e) =>
             setState({
               practicalExperience: {
                 companyName: e.target.value,
-                positionTitle: state.practicalExperience.positionTitle,
-                duration: state.practicalExperience.duration,
+                positionTitle: readState.practicalExperience.positionTitle,
+                duration: readState.practicalExperience.duration,
               },
             })
           }
@@ -135,13 +165,13 @@ export function Form(props) {
         <input
           type="text"
           id="position-title"
-          value={state.practicalExperience.positionTitle}
+          value={readState.practicalExperience.positionTitle}
           onChange={(e) =>
             setState({
               practicalExperience: {
-                companyName: state.practicalExperience.companyName,
+                companyName: readState.practicalExperience.companyName,
                 positionTitle: e.target.value,
-                duration: state.practicalExperience.duration,
+                duration: readState.practicalExperience.duration,
               },
             })
           }
@@ -152,12 +182,12 @@ export function Form(props) {
           type="number"
           id="duration"
           min={0}
-          value={state.practicalExperience.duration}
+          value={readState.practicalExperience.duration}
           onChange={(e) =>
             setState({
               practicalExperience: {
-                companyName: state.practicalExperience.companyName,
-                positionTitle: state.practicalExperience.positionTitle,
+                companyName: readState.practicalExperience.companyName,
+                positionTitle: readState.practicalExperience.positionTitle,
                 duration: e.target.value,
               },
             })
