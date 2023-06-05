@@ -1,27 +1,24 @@
-import { Component } from "react";
+import { useState } from "react";
 import { Form } from "./components/Form";
 import { Display } from "./components/Display";
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      edit: false,
-      personalInformation: { name: "", email: "", phone: "" },
-      educationExperience: {
-        schoolName: "",
-        titleStudy: "",
-        dateStudy: "",
-      },
-      practicalExperience: {
-        companyName: "",
-        positionTitle: "",
-        duration: "",
-      },
-    };
-  }
+export default function App() {
+  const [state, setState] = useState({
+    edit: false,
+    personalInformation: { name: "", email: "", phone: "" },
+    educationExperience: {
+      schoolName: "",
+      titleStudy: "",
+      dateStudy: "",
+    },
+    practicalExperience: {
+      companyName: "",
+      positionTitle: "",
+      duration: "",
+    },
+  });
 
-  printCV() {
+  function printCV() {
     console.log("print");
     document
       .querySelectorAll("button")
@@ -36,32 +33,29 @@ export default class App extends Component {
     }
   }
 
-  render() {
-    return (
-      <>
-        <div className="container">
-          {" "}
-          <h1>CV Project</h1>
-          {this.state.practicalExperience.duration !== "" &&
-          this.state.edit !== true ? (
-            <Display
-              readState={this.state}
-              setState={this.setState.bind(this)}
-            />
-          ) : (
-            <Form
-              readState={this.state}
-              setState={this.setState.bind(this)}
-            />
-          )}
-          <button
-            className="print-btn"
-            onClick={this.printCV}
-          >
-            Print
-          </button>
-        </div>
-      </>
-    );
-  }
+  return (
+    <>
+      <div className="container">
+        {" "}
+        <h1>CV Project</h1>
+        {state.practicalExperience.duration !== "" && state.edit !== true ? (
+          <Display
+            readState={state}
+            setState={setState}
+          />
+        ) : (
+          <Form
+            readState={state}
+            setState={setState}
+          />
+        )}
+        <button
+          className="print-btn"
+          onClick={printCV}
+        >
+          Print
+        </button>
+      </div>
+    </>
+  );
 }
