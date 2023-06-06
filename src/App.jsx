@@ -36,7 +36,6 @@ export default function App() {
     <>
       <div className="container">
         <h1>CV Project</h1>
-        {console.log(state.edit)}
         {state.edit === true ? (
           <Display
             readState={state}

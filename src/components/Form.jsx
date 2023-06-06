@@ -21,6 +21,16 @@ export function Form({ readState, setState }) {
     });
   }
 
+  const setNewState = (part, key, value) => {
+    setState({
+      ...readState,
+      [part]: {
+        ...readState[part],
+        [key]: value,
+      },
+    });
+  };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -32,24 +42,7 @@ export function Form({ readState, setState }) {
           id="name"
           value={readState.personalInformation.name}
           onChange={(e) =>
-            setState({
-              edit: false,
-              personalInformation: {
-                name: e.target.value,
-                email: readState.personalInformation.email,
-                phone: readState.personalInformation.phone,
-              },
-              educationExperience: {
-                schoolName: readState.educationExperience.schoolName,
-                titleStudy: readState.educationExperience.titleStudy,
-                dateStudy: readState.educationExperience.dateStudy,
-              },
-              practicalExperience: {
-                companyName: readState.practicalExperience.companyName,
-                positionTitle: readState.practicalExperience.positionTitle,
-                duration: readState.practicalExperience.duration,
-              },
-            })
+            setNewState("personalInformation", "name", e.target.value)
           }
         />
 
@@ -59,24 +52,7 @@ export function Form({ readState, setState }) {
           id="mail"
           value={readState.personalInformation.email}
           onChange={(e) =>
-            setState({
-              edit: false,
-              personalInformation: {
-                name: readState.personalInformation.name,
-                email: e.target.value,
-                phone: readState.personalInformation.phone,
-              },
-              educationExperience: {
-                schoolName: readState.educationExperience.schoolName,
-                titleStudy: readState.educationExperience.titleStudy,
-                dateStudy: readState.educationExperience.dateStudy,
-              },
-              practicalExperience: {
-                companyName: readState.practicalExperience.companyName,
-                positionTitle: readState.practicalExperience.positionTitle,
-                duration: readState.practicalExperience.duration,
-              },
-            })
+            setNewState("personalInformation", "email", e.target.value)
           }
         />
 
@@ -87,24 +63,7 @@ export function Form({ readState, setState }) {
           id="phone"
           value={readState.personalInformation.phone}
           onChange={(e) =>
-            setState({
-              edit: false,
-              personalInformation: {
-                name: readState.personalInformation.name,
-                email: readState.personalInformation.email,
-                phone: e.target.value,
-              },
-              educationExperience: {
-                schoolName: readState.educationExperience.schoolName,
-                titleStudy: readState.educationExperience.titleStudy,
-                dateStudy: readState.educationExperience.dateStudy,
-              },
-              practicalExperience: {
-                companyName: readState.practicalExperience.companyName,
-                positionTitle: readState.practicalExperience.positionTitle,
-                duration: readState.practicalExperience.duration,
-              },
-            })
+            setNewState("personalInformation", "phone", e.target.value)
           }
         />
 
@@ -116,24 +75,7 @@ export function Form({ readState, setState }) {
           id="school-name"
           value={readState.educationExperience.schoolName}
           onChange={(e) =>
-            setState({
-              edit: false,
-              personalInformation: {
-                name: readState.personalInformation.name,
-                email: readState.personalInformation.email,
-                phone: readState.personalInformation.phone,
-              },
-              educationExperience: {
-                schoolName: e.target.value,
-                titleStudy: readState.educationExperience.titleStudy,
-                dateStudy: readState.educationExperience.dateStudy,
-              },
-              practicalExperience: {
-                companyName: readState.practicalExperience.companyName,
-                positionTitle: readState.practicalExperience.positionTitle,
-                duration: readState.practicalExperience.duration,
-              },
-            })
+            setNewState("educationExperience", "schoolName", e.target.value)
           }
         />
 
@@ -143,24 +85,7 @@ export function Form({ readState, setState }) {
           id="title-study"
           value={readState.educationExperience.titleStudy}
           onChange={(e) =>
-            setState({
-              edit: false,
-              personalInformation: {
-                name: readState.personalInformation.name,
-                email: readState.personalInformation.email,
-                phone: readState.personalInformation.phone,
-              },
-              educationExperience: {
-                schoolName: readState.educationExperience.schoolName,
-                titleStudy: e.target.value,
-                dateStudy: readState.educationExperience.dateStudy,
-              },
-              practicalExperience: {
-                companyName: readState.practicalExperience.companyName,
-                positionTitle: readState.practicalExperience.positionTitle,
-                duration: readState.practicalExperience.duration,
-              },
-            })
+            setNewState("educationExperience", "titleStudy", e.target.value)
           }
         />
 
@@ -170,24 +95,7 @@ export function Form({ readState, setState }) {
           id="date-study"
           value={readState.educationExperience.dateStudy}
           onChange={(e) =>
-            setState({
-              edit: false,
-              personalInformation: {
-                name: readState.personalInformation.name,
-                email: readState.personalInformation.email,
-                phone: readState.personalInformation.phone,
-              },
-              educationExperience: {
-                schoolName: readState.educationExperience.schoolName,
-                titleStudy: readState.educationExperience.titleStudy,
-                dateStudy: e.target.value,
-              },
-              practicalExperience: {
-                companyName: readState.practicalExperience.companyName,
-                positionTitle: readState.practicalExperience.positionTitle,
-                duration: readState.practicalExperience.duration,
-              },
-            })
+            setNewState("educationExperience", "dateStudy", e.target.value)
           }
         />
 
@@ -199,24 +107,7 @@ export function Form({ readState, setState }) {
           id="company-name"
           value={readState.practicalExperience.companyName}
           onChange={(e) =>
-            setState({
-              edit: false,
-              personalInformation: {
-                name: readState.personalInformation.name,
-                email: readState.personalInformation.email,
-                phone: readState.personalInformation.phone,
-              },
-              educationExperience: {
-                schoolName: readState.educationExperience.schoolName,
-                titleStudy: readState.educationExperience.titleStudy,
-                dateStudy: readState.educationExperience.dateStudy,
-              },
-              practicalExperience: {
-                companyName: e.target.value,
-                positionTitle: readState.practicalExperience.positionTitle,
-                duration: readState.practicalExperience.duration,
-              },
-            })
+            setNewState("practicalExperience", "companyName", e.target.value)
           }
         />
 
@@ -226,24 +117,7 @@ export function Form({ readState, setState }) {
           id="position-title"
           value={readState.practicalExperience.positionTitle}
           onChange={(e) =>
-            setState({
-              edit: false,
-              personalInformation: {
-                name: readState.personalInformation.name,
-                email: readState.personalInformation.email,
-                phone: readState.personalInformation.phone,
-              },
-              educationExperience: {
-                schoolName: readState.educationExperience.schoolName,
-                titleStudy: readState.educationExperience.titleStudy,
-                dateStudy: readState.educationExperience.dateStudy,
-              },
-              practicalExperience: {
-                companyName: readState.practicalExperience.companyName,
-                positionTitle: e.target.value,
-                duration: readState.practicalExperience.duration,
-              },
-            })
+            setNewState("practicalExperience", "positionTitle", e.target.value)
           }
         />
 
@@ -254,24 +128,7 @@ export function Form({ readState, setState }) {
           min={0}
           value={readState.practicalExperience.duration}
           onChange={(e) =>
-            setState({
-              edit: false,
-              personalInformation: {
-                name: readState.personalInformation.name,
-                email: readState.personalInformation.email,
-                phone: readState.personalInformation.phone,
-              },
-              educationExperience: {
-                schoolName: readState.educationExperience.schoolName,
-                titleStudy: readState.educationExperience.titleStudy,
-                dateStudy: readState.educationExperience.dateStudy,
-              },
-              practicalExperience: {
-                companyName: readState.practicalExperience.companyName,
-                positionTitle: readState.practicalExperience.positionTitle,
-                duration: e.target.value,
-              },
-            })
+            setNewState("practicalExperience", "duration", e.target.value)
           }
         />
 
